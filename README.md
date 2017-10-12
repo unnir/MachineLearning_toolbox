@@ -10,3 +10,8 @@ Some usefull scripts for ML using python.
    Hyperparameter tunning in Voting classifie:
 
    https://github.com/unnir/ML_toolbox/blob/master/vote_tune.py
+
+
+---
+   Simple ensemble classifier with Python:
+   https://github.com/unnir/ML_toolbox/blob/master/Ensemble.py

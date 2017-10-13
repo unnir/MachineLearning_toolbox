@@ -7,7 +7,7 @@ Some usefull scripts for ML using python.
    https://github.com/unnir/ML_toolbox/blob/master/random_search_xgboost_lightgbm.py
 
 ---
-   Hyperparameter tunning in Voting classifie:
+   Hyperparameter tunning in a voting classifier:
 
    https://github.com/unnir/ML_toolbox/blob/master/vote_tune.py
 

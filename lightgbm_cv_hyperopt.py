@@ -4,9 +4,9 @@ import lightgbm as lg
 
 
 cnt = 0
+
 def objective(params):
     global cnt 
-    #print(float(params['learning_rate']))
     params = {
         'num_leaves': int(params['num_leaves']),
         'max_bin':int(params['max_bin']),
@@ -18,7 +18,9 @@ def objective(params):
     cv_data = lg.cv(params, train,  num_boost_round=4000, nfold=5,  seed = 2332,
                     stratified = False,early_stopping_rounds=5, metrics='rmse')    
     score = cv_data['rmse-mean'][-1]
-    #rint("############### Score: {0}".format(cnt)   
+    
+    # saving score to a file
+    
     print("############### Score: {0}".format(score))
     print("############### Prms: ", params)
     print('..........................')

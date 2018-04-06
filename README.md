@@ -18,7 +18,7 @@ Some scripts for ML using python.
    https://github.com/unnir/ML_toolbox/blob/master/Ensemble.py
 
 ---
-   LightGBM Cross-Validation with [HyperOpt library](https://github.com/hyperopt/hyperopt). 
+   LightGBM Hyperparameters search with [HyperOpt library](https://github.com/hyperopt/hyperopt) |Cross-Validation|:
  
    https://github.com/unnir/ML_toolbox/blob/master/lightgbm_cv_hyperopt.py
 

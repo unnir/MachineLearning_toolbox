@@ -4,9 +4,10 @@ import lightgbm as lg
 
 
 cnt = 0
+new_max = 1000
 
 def objective(params):
-    global cnt 
+    global cnt, new_max 
     params = {
         'num_leaves': int(params['num_leaves']),
         'max_bin':int(params['max_bin']),
@@ -20,17 +21,18 @@ def objective(params):
     score = cv_data['rmse-mean'][-1]
     
     # saving score to a file
-    
-    print("############### Score: {0}".format(score))
-    print("############### Prms: ", params)
-    print('..........................')
-    with open("cv_lightgbm.txt", "a") as myfile:
-        myfile.write(f'''
-        ############### Score: {cnt}
-        ############### Score: {score}
-        ############### Prms:{params}
-        \n
-        ''')
+    if score < new_max:
+        new_max = score
+        print("############### Score: {0}".format(score))
+        print("############### Prms: ", params)
+        print('..........................')
+        with open("cv_lightgbm.txt", "a") as myfile:
+            myfile.write(f'''
+            ############### Score: {cnt}
+            ############### Score: {score}
+            ############### Prms:{params}
+            \n
+            ''')
     cnt += 1
     return {
         'loss': score,

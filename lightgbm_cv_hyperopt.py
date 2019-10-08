@@ -6,6 +6,8 @@ import lightgbm as lg
 cnt = 0
 new_max = 1000
 
+data = lg.Dataset(X,y)
+
 def objective(params):
     global cnt, new_max 
     params = {
@@ -16,7 +18,7 @@ def objective(params):
         'lambda_l2':int(params['lambda_l2']),
 
     }  
-    cv_data = lg.cv(params, train,  num_boost_round=4000, nfold=5,  seed = 2332,
+    cv_data = lg.cv(params, data,  num_boost_round=4000, nfold=5,  seed = 2332,
                     stratified = False,early_stopping_rounds=5, metrics='rmse')    
     score = cv_data['rmse-mean'][-1]
     
